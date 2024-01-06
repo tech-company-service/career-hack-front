@@ -10,12 +10,19 @@ export default function Login() {
 
 	if (status !== 'authenticated') {
 		return (
-			<div>
-				<p>あなたはログインしていません</p>
-				<button onClick={() => signIn('google', {}, { prompt: 'login' })}>
-					Googleでログイン
-				</button>
-			</div>
+      <div>
+        <div>
+          <p>あなたはログインしていません</p>
+          <button onClick={() => signIn('google', {}, { prompt: 'login' })}>
+            Googleでログイン
+          </button>
+        </div>
+        <div>
+          <button onClick={() => signIn('github', {}, { prompt: 'login' })}>
+            GitHubでログイン
+          </button>
+        </div>
+      </div>
 		);
 	}
 	return null;
