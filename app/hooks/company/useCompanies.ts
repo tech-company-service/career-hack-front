@@ -12,8 +12,7 @@ const useCompanies = () => {
     const fetchCompanies = async () => {
       setLoading(true);
       try {
-        console.log(process.env.NEXT_PUBLIC_APP_API_URL)
-        const res = await fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/api/v1/companies`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_APP_API_URL}/api/v1/companies`, { cache: "no-store" });
         if (!res.ok) {
           throw new Error('データ取得失敗');
         }

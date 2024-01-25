@@ -15,12 +15,12 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
         </div>
         <div className="px-6 py-4">
           <div className="mt-4">
-            <span className="text-gray-700 font-semibold">公開年収:</span>
-            <span className="text-gray-700">{company.averageSalary}万円</span>
+            <span className="text-gray-700">平均年収:</span>
+            <span className="text-gray-700 font-bold"> {company.average_salary}万円</span>
           </div>
           <div className="mt-4">
-            <span className="text-gray-700 font-semibold">初任給:</span>
-            <span className="text-gray-700">{company.initialSalary}万円</span>
+            <span className="text-gray-700">初任給:</span>
+            <span className="text-gray-700 font-bold"> {company.initial_salary}万円</span>
           </div>
         </div>
         <div className="px-6 py-4">

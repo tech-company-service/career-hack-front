@@ -4,7 +4,7 @@ export type Company = {
   name: string;
   description: string;
   address: string;
-  averageSalary: number;
-  initialSalary: number;
-  recruitUrl: string;
+  average_salary: number;
+  initial_salary: number;
+  recruit_url: string;
 }
