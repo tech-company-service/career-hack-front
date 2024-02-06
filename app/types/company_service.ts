@@ -1,6 +1,6 @@
 export type CompanyService = {
   id: number;
-  launched_at: Date;
+  launched_at: string;
   name: string;
   description: string;
 }

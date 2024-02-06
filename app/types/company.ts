@@ -1,3 +1,4 @@
+import { CompanyAbout } from "./company_about";
 import { CompanyBenefit } from "./company_benefits";
 import { CompanyService } from "./company_service";
 import { JobOffer } from "./job_offer";
@@ -21,8 +22,10 @@ export type CompanyDetail = {
   address: string;
   average_salary: number;
   initial_salary: number;
+  employees: number;
   recruit_url: string;
-  job_offer: JobOffer[];
+  job_offers: JobOffer[];
   company_services: CompanyService[];
   company_benefits: CompanyBenefit[];
+  company_abouts: CompanyAbout[];
 }

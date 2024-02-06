@@ -6,8 +6,7 @@ const useCompanyDetail = (hashId: string) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);
 
-  // useMemo を使用して options 配列をメモ化
-  const options = useMemo(() => ['company_benefits', 'company_services', 'job_offers'], []);
+  const options = useMemo(() => ['company_benefits', 'company_services', 'job_offers', 'company_abouts', 'company_articles'], []);
 
   useEffect(() => {
     const fetchCompanyDetail = async () => {
