@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import LoadingSpinner from '../LoadingSpinner';
 import NoSearchResult from '../NoSearchResult';
@@ -26,10 +27,12 @@ const CompanyList: React.FC<CompanyListProps> = ({ companies, loading, error }) 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       {companies?.map((company) => (
-        <CompanyCard
-          key={company.id}
-          company={company}
-        />
+        <Link href={`/company/${company.hash_id}`} key={company.id}>
+          <CompanyCard
+            key={company.id}
+            company={company}
+          />
+        </Link>
       ))}
     </div>
   );
