@@ -1,4 +1,7 @@
-import React from 'react'
+'use client'
+
+import React, { useState } from 'react'
+import CustomModal from '../CustomModal';
 import { CompanyDetail } from '@/app/types/company';
 
 interface CompanyDetailProps {
@@ -6,32 +9,82 @@ interface CompanyDetailProps {
 }
 
 const CompanyDetailTable: React.FC<CompanyDetailProps> = ({ companyDetail }) => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [modalStyle, setModalStyle] = useState<React.CSSProperties>({});
+
+  const handleMouseEnter = (event: React.MouseEvent<HTMLDivElement>) => {
+    setIsModalOpen(true);
+    const rect = event.currentTarget.getBoundingClientRect();
+    setModalStyle({
+      position: 'fixed',
+      top: `${rect.top + window.scrollY + rect.height}px`,
+      left: `${rect.left + window.scrollX}px`,
+      transform: 'translate(0, 10px)',
+      maxWidth: '90%',
+      zIndex: 50,
+    });
+  };
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-4">
-      <div className="flex flex-col md:flex-row md:items-center gap-4">
-        <div className="font-semibold">住所</div>
-        <div>{companyDetail?.address}</div>
+    <div className="container px-4">
+      <div className="grid gap-8 p-4 md:grid-cols-2">
+        {/* 左側のカラム */}
+        <div>
+          {/* 新卒年収 */}
+          <div className="mb-4">
+            <div className="flex items-baseline gap-4"> {/* gap-1 を gap-4 に変更 */}
+              <div className="text-sm font-semibold">新卒年収</div>
+              <span className="text-3xl font-bold">{companyDetail?.initial_salary}</span>
+              <span className="text-lg">万円</span>
+            </div>
+            <div
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={() => setIsModalOpen(false)}
+              className="flex items-center cursor-pointer"
+            >
+              <img src="/question_mark.svg" alt="Info" className="ml-2 w-4 h-4" />
+            </div>
+          </div>
+  
+          {/* 平均年収 */}
+          <div className="mb-4">
+            <div className="flex items-baseline gap-4"> {/* gap-1 を gap-4 に変更 */}
+              <div className="text-sm font-semibold">平均年収</div>
+              <span className="text-3xl font-bold">{companyDetail?.average_salary}</span>
+              <span className="text-lg">万円</span>
+            </div>
+            <div className="text-sm">
+              ※ 有価証券報告書を参照
+            </div>
+          </div>
+        </div>
+  
+        {/* 右側のカラム */}
+        <div>
+          {/* 住所 */}
+          <div className="mb-4 flex items-center">
+            <div className="text-sm font-semibold mr-4">住所</div> {/* mr-1 を mr-4 に変更 */}
+            <div>{companyDetail?.address}</div>
+          </div>
+  
+          {/* 従業員数 */}
+          <div className="flex items-center">
+            <div className="text-sm font-semibold mr-4">従業員数</div> {/* mr-1 を mr-4 に変更 */}
+            <div>{companyDetail?.employees}人</div>
+          </div>
+        </div>
       </div>
-      <div className="flex flex-col md:flex-row md:items-center gap-4">
-        <div className="font-semibold">採用URL</div>
-        <a href={companyDetail?.recruit_url} target="_blank" rel="noopener noreferrer" className="break-all hover:text-blue-500">
-          {companyDetail?.recruit_url}
-        </a>
-      </div>
-      <div className="flex flex-col md:flex-row md:items-center gap-4">
-        <div className="font-semibold">従業員数</div>
-        <div>{companyDetail?.employees}人</div>
-      </div>
-      <div className="flex flex-col md:flex-row md:items-center gap-4">
-        <div className="font-semibold">新卒年収</div>
-        <div>{companyDetail?.initial_salary}万円</div>
-      </div>
-      <div className="flex flex-col md:flex-row md:items-center gap-4">
-        <div className="font-semibold">平均年収</div>
-        <div>{companyDetail?.average_salary}万円</div>
-      </div>
+  
+      {/* モーダル */}
+      <CustomModal
+        isOpen={isModalOpen}
+        onRequestClose={() => setIsModalOpen(false)}
+        content={<p>{companyDetail?.detailed_initial_salary}</p>}
+        style={modalStyle}
+      />
     </div>
-  )
+  );
+  
 }
 
 export default CompanyDetailTable

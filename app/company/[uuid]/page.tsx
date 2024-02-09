@@ -28,7 +28,7 @@ const CompanyDetail = () => {
         <div className="text-xl font-bold mb-4">企業について</div>
         <Accordion companyAbouts={companyDetail?.company_abouts || []} />
       </div>
-      <div className="mb-4 mt-16">
+      <div className="mb-4 mt-8">
         <CompanyDetailTable companyDetail={companyDetail} />
       </div>
       <BorderLine />

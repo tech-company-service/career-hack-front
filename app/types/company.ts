@@ -24,6 +24,7 @@ export type CompanyDetail = {
   initial_salary: number;
   employees: number;
   recruit_url: string;
+  detailed_initial_salary: string;
   job_offers: JobOffer[];
   company_services: CompanyService[];
   company_benefits: CompanyBenefit[];
