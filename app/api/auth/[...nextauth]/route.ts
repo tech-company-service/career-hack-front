@@ -3,7 +3,7 @@ import GoogleProvider from 'next-auth/providers/google';
 import GithubProvider from "next-auth/providers/github";
 import axios from 'axios';
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const apiUrl = process.env.NEXT_PUBLIC_APP_API_URL;
 
 const handler = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
@@ -25,7 +25,7 @@ const handler = NextAuth({
 			const email = user?.email;
 			try {
 				const response = await axios.post(
-					`${apiUrl}/auth/${provider}/callback`,
+					`${apiUrl}/api/v1/auth/${provider}/callback`,
 					{
 						provider,
 						uid,
