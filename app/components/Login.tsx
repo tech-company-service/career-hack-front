@@ -1,17 +1,17 @@
-"use client";
+'use client'
 
-import { useSession, signIn } from 'next-auth/react';
-import React from 'react';
+import { useSession, signIn } from 'next-auth/react'
+import React from 'react'
 
 export default function Login() {
-	const { data: session, status } = useSession();
+  const { data: session, status } = useSession()
 
-	if (status === 'loading') {
-		return <div>Loading...</div>;
-	}
+  if (status === 'loading') {
+    return <div>Loading...</div>
+  }
 
-	if (status !== 'authenticated') {
-		return (
+  if (status !== 'authenticated') {
+    return (
       <div>
         <div>
           <p>あなたはログインしていません</p>
@@ -25,7 +25,7 @@ export default function Login() {
           </button>
         </div>
       </div>
-		);
-	}
-	return null;
+    )
+  }
+  return null
 }

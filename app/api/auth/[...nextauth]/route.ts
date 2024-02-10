@@ -1,18 +1,18 @@
-import NextAuth from 'next-auth';
-import GoogleProvider from 'next-auth/providers/google';
-import GithubProvider from "next-auth/providers/github";
+import NextAuth from 'next-auth'
+import GithubProvider from 'next-auth/providers/github'
+import GoogleProvider from 'next-auth/providers/google'
 
 const handler = NextAuth({
-	secret: process.env.NEXTAUTH_SECRET,
-	providers: [
+  secret: process.env.NEXTAUTH_SECRET,
+  providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID ?? '',
       clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? '',
-    }), 
-		GithubProvider({
-			clientId: process.env.GITHUB_CLIENT_ID ?? '',
-			clientSecret: process.env.GITHUB_CLIENT_SECRET ?? '',
-		}),
-	]
-});
-export { handler as GET, handler as POST };
+    }),
+    GithubProvider({
+      clientId: process.env.GITHUB_CLIENT_ID ?? '',
+      clientSecret: process.env.GITHUB_CLIENT_SECRET ?? '',
+    }),
+  ],
+})
+export { handler as GET, handler as POST }
