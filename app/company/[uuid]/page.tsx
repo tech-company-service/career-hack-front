@@ -41,7 +41,7 @@ const CompanyDetail = () => {
       </div>
       <div className='my-4'>
         <Link
-          href={`/company/${hashId}/job-offers`}
+          href={`/company/${hashId}/job_offers`}
           className='text-blue-500 hover:text-blue-600 transition duration-300 ease-in-out'
         >
           もっと見る
