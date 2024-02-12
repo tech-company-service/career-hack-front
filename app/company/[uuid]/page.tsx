@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 import BorderLine from '@/app/components/BorderLine'
 import LoadingSpinner from '@/app/components/LoadingSpinner'
 import Accordion from '@/app/components/company/CompanyAboutAccordion'
+import CompanyArticle from '@/app/components/company/CompanyArticle'
 import CompanyDetailTable from '@/app/components/company/CompanyDetailTable'
 import CompanyJobOffer from '@/app/components/company/CompanyJobOffer'
 import CompanyService from '@/app/components/company/CompanyService'
@@ -37,6 +38,22 @@ const CompanyDetail = () => {
       <BorderLine />
 
       <div className='mt-8'>
+        <div className='text-4xl font-bold mb-4'>社内エンジニアを知る記事</div>
+        <div className='mb-4 mt-16'>
+          <CompanyArticle articles={companyDetail?.company_articles || []} />
+        </div>
+      </div>
+      <div className='my-4'>
+        <Link
+          href={`/company/${hashId}/articles`}
+          className='text-blue-500 hover:text-blue-600 transition duration-300 ease-in-out'
+        >
+          もっと見る
+        </Link>
+      </div>
+      <BorderLine />
+
+      <div className='mt-8'>
         <div className='text-4xl font-bold mb-4'>採用情報</div>
         <div className='mb-4 mt-16'>
           <CompanyJobOffer jobOffers={companyDetail?.job_offers || []} />
@@ -58,7 +75,7 @@ const CompanyDetail = () => {
           <CompanyService services={companyDetail?.company_services || []} />
         </div>
       </div>
-      <div className='mt-4'>
+      <div className='my-4'>
         <Link
           href={`/company/${hashId}/job-offers`}
           className='text-blue-500 hover:text-blue-600 transition duration-300 ease-in-out'
@@ -67,6 +84,7 @@ const CompanyDetail = () => {
         </Link>
       </div>
     </div>
+    
   )
 }
 
