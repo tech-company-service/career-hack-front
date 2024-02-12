@@ -1,4 +1,5 @@
 import { CompanyAbout } from '@/app/types/company_about'
+import { CompanyArticle } from '@/app/types/company_article'
 import { CompanyBenefit } from '@/app/types/company_benefits'
 import { CompanyProject } from '@/app/types/company_project'
 import { CompanyService } from '@/app/types/company_service'
@@ -31,5 +32,6 @@ export type CompanyDetail = {
   company_services: CompanyService[]
   company_benefits: CompanyBenefit[]
   company_abouts: CompanyAbout[]
+  company_articles: CompanyArticle[]
   company_projects?: CompanyProject[]
 }
