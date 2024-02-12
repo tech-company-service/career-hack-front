@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import React, { useState } from 'react'
 import BorderLine from '@/app/components/BorderLine'
+import LoadingSpinner from '@/app/components/LoadingSpinner'
 import Accordion from '@/app/components/company/CompanyAboutAccordion'
 import CompanyDetailTable from '@/app/components/company/CompanyDetailTable'
 import CompanyJobOffer from '@/app/components/company/CompanyJobOffer'
@@ -15,7 +16,9 @@ const CompanyDetail = () => {
   const hashId = params.uuid.toString()
   const { companyDetail, loading, error } = useCompanyDetail(hashId)
 
-  if (loading) return <p>Loading...</p>
+  if (loading) {
+    return <LoadingSpinner />;
+  }
   if (error) return <p>Error: {error.message}</p>
 
   const jobOfferCount: number | undefined = companyDetail?.job_offers.length
