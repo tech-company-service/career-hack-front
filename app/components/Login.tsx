@@ -2,12 +2,13 @@
 
 import { useSession, signIn } from 'next-auth/react'
 import React from 'react'
+import LoadingSpinner from '@/app/components/LoadingSpinner';
 
 export default function Login() {
   const { data: session, status } = useSession()
 
   if (status === 'loading') {
-    return <div>Loading...</div>
+    return <LoadingSpinner />;
   }
 
   if (status !== 'authenticated') {
