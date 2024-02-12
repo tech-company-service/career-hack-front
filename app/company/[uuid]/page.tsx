@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import React, { useState } from 'react'
+import React from 'react'
 import BorderLine from '@/app/components/BorderLine'
 import LoadingSpinner from '@/app/components/LoadingSpinner'
 import Accordion from '@/app/components/company/CompanyAboutAccordion'
@@ -75,16 +75,7 @@ const CompanyDetail = () => {
           <CompanyService services={companyDetail?.company_services || []} />
         </div>
       </div>
-      <div className='my-4'>
-        <Link
-          href={`/company/${hashId}/job-offers`}
-          className='text-blue-500 hover:text-blue-600 transition duration-300 ease-in-out'
-        >
-          もっと見る
-        </Link>
-      </div>
     </div>
-    
   )
 }
 
