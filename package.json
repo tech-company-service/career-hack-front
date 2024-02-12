@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "eslint-config-prettier": "^9.1.0",
+    "axios": "^1.6.5",
     "next": "14.0.4",
     "next-auth": "^4.24.5",
     "prettier": "^3.2.4",
