@@ -1,10 +1,9 @@
 'use client'
 
 import { useSession, signIn } from 'next-auth/react'
-import React from 'react'
-import LoadingSpinner from '@/app/components/LoadingSpinner';
-import { useState } from 'react';
+import React, { useState }  from 'react'
 import ReactModal from 'react-modal';
+import LoadingSpinner from '@/app/components/LoadingSpinner';
 
 export default function Login() {
   const { data: session, status } = useSession()
