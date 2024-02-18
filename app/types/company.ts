@@ -14,6 +14,8 @@ export type Company = {
   average_salary: number
   initial_salary: number
   recruit_url: string
+  is_logo_mail_approved: boolean
+  avator: string
   company_projects: CompanyProject[]
 }
 
@@ -28,6 +30,8 @@ export type CompanyDetail = {
   employees: number
   recruit_url: string
   detailed_initial_salary: string
+  is_logo_mail_approved: boolean
+  avator: string
   job_offers: JobOffer[]
   company_services: CompanyService[]
   company_benefits: CompanyBenefit[]

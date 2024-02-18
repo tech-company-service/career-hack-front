@@ -11,6 +11,7 @@ import CompanyDetailTable from '@/app/components/company/CompanyDetailTable'
 import CompanyJobOffer from '@/app/components/company/CompanyJobOffer'
 import CompanyService from '@/app/components/company/CompanyService'
 import useCompanyDetail from '@/app/hooks/company/useCompanyDetail'
+import CompanyLogo from '@/app/components/company/CompanyLogo'
 
 const CompanyDetail = () => {
   const params = useParams()
@@ -26,7 +27,10 @@ const CompanyDetail = () => {
 
   return (
     <div className='bg-white shadow-md rounded-lg p-6 px-24'>
-      <div className='text-4xl font-bold mb-4'>{companyDetail?.name}</div>
+      <div className='flex items-end mb-4'>
+        <CompanyLogo avator={companyDetail?.avator ?? ''} is_logo_mail_approved={companyDetail?.is_logo_mail_approved ?? false} height={80} width={80} />
+        <div className='text-4xl font-bold ml-4 mb-4'>{companyDetail?.name}</div>
+      </div>
       <div className='mb-4'>{companyDetail?.description}</div>
       <div className='mb-4 mt-16'>
         <div className='text-xl font-bold mb-4'>企業について</div>
