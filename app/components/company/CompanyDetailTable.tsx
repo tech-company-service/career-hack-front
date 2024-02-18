@@ -56,13 +56,13 @@ const CompanyDetailTable: React.FC<CompanyDetailProps> = ({ companyDetail }) => 
             <div className='text-sm'>※ 有価証券報告書を参照</div>
           </div>
         </div>
-        <div>
-          <div className='mb-4 flex items-center'>
-            <div className='text-sm font-semibold mr-4'>住所</div>
+        <div className=''>
+          <div className='pt-3 mb-4 flex items-center'>
+            <div className='text-sm font-semibold mr-4  min-w-[70px]'>住所</div>
             <div>{companyDetail?.address}</div>
           </div>
-          <div className='flex items-center'>
-            <div className='text-sm font-semibold mr-4'>従業員数</div>
+          <div className='pt-8 flex items-center'>
+            <div className='text-sm font-semibold mr-4 min-w-[70px]'>従業員数</div>
             <div>{companyDetail?.employees}人</div>
           </div>
         </div>
