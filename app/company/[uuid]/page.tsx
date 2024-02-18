@@ -9,9 +9,9 @@ import Accordion from '@/app/components/company/CompanyAboutAccordion'
 import CompanyArticle from '@/app/components/company/CompanyArticle'
 import CompanyDetailTable from '@/app/components/company/CompanyDetailTable'
 import CompanyJobOffer from '@/app/components/company/CompanyJobOffer'
+import CompanyLogo from '@/app/components/company/CompanyLogo'
 import CompanyService from '@/app/components/company/CompanyService'
 import useCompanyDetail from '@/app/hooks/company/useCompanyDetail'
-import CompanyLogo from '@/app/components/company/CompanyLogo'
 
 const CompanyDetail = () => {
   const params = useParams()

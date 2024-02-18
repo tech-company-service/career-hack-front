@@ -1,7 +1,7 @@
 import React from 'react'
+import CompanyLogo from '@/app/components/company/CompanyLogo'
 import CompanyProjectsTag from '@/app/components/company/CompanyProjectsTag'
 import { Company } from '@/app/types/company'
-import CompanyLogo from '@/app/components/company/CompanyLogo'
 
 interface CompanyCardProps {
   company: Company
