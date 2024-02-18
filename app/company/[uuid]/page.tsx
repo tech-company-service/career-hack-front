@@ -28,7 +28,7 @@ const CompanyDetail = () => {
   return (
     <div className='bg-white shadow-md rounded-lg p-6 px-24'>
       <div className='flex items-end mb-4'>
-        <CompanyLogo avator={companyDetail?.avator ?? ''} is_logo_mail_approved={companyDetail?.is_logo_mail_approved ?? false} height={80} width={80} />
+        <CompanyLogo avator={companyDetail?.avator } is_logo_mail_approved={companyDetail?.is_logo_mail_approved } height={80} width={80} />
         <div className='text-4xl font-bold ml-4 mb-4'>{companyDetail?.name}</div>
       </div>
       <div className='mb-4'>{companyDetail?.description}</div>
