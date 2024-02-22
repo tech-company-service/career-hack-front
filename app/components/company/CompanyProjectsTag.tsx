@@ -7,7 +7,7 @@ interface CompanyProjectsTagProps {
 
 const CompanyProjectsTag: React.FC<CompanyProjectsTagProps> = ({ companyProjects }) => {
   return (
-    <div className='flex flex-wrap -m-1'>
+    <div className='flex overflow-x-scroll whitespace-nowrap -m-1'>
       {companyProjects?.map((project) => (
         <span
           key={project.id}
