@@ -18,14 +18,12 @@ import useCompanyDetail from '@/app/hooks/company/useCompanyDetail'
 const CompanyDetail = () => {
   const params = useParams()
   const hashId = params.uuid.toString()
-  const { companyDetail, loading, error } = useCompanyDetail(hashId)
+  const { companyDetail, detailLoading, detailError } = useCompanyDetail(hashId)
 
-  if (loading) {
+  if (detailLoading) {
     return <LoadingSpinner />;
   }
-  if (error) {
-   return <Custom404 />
-  }
+  if (detailError) return <p>Error: {detailError.message}</p>
 
   const jobOfferCount: number | undefined = companyDetail?.job_offers.length
 
