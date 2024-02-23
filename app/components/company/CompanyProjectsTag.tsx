@@ -1,6 +1,6 @@
 import React from 'react'
-import { CompanyProject } from '@/app/types/company_project'
 import styles from '@/app/styles.module.css'
+import { CompanyProject } from '@/app/types/company_project'
 
 interface CompanyProjectsTagProps {
   companyProjects: CompanyProject[]
