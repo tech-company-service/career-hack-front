@@ -37,5 +37,5 @@ export type CompanyDetail = {
   company_benefits: CompanyBenefit[]
   company_abouts: CompanyAbout[]
   company_articles: CompanyArticle[]
-  company_projects?: CompanyProject[]
+  company_projects: CompanyProject[]
 }
