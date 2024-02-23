@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ReactModal from 'react-modal'
-import { CompanyService } from '../types/company_service'
+import { CompanyService } from '@/app/types/company_service'
 
 interface ServiceCardProps {
   service: CompanyService

@@ -3,10 +3,12 @@
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import React from 'react'
+import Custom404 from '@/app/404'
 import BorderLine from '@/app/components/BorderLine'
 import LoadingSpinner from '@/app/components/LoadingSpinner'
 import Accordion from '@/app/components/company/CompanyAboutAccordion'
 import CompanyArticle from '@/app/components/company/CompanyArticle'
+import CompanyBenefit from '@/app/components/company/CompanyBenefit'
 import CompanyDetailTable from '@/app/components/company/CompanyDetailTable'
 import CompanyJobOffer from '@/app/components/company/CompanyJobOffer'
 import CompanyLogo from '@/app/components/company/CompanyLogo'
@@ -21,7 +23,9 @@ const CompanyDetail = () => {
   if (loading) {
     return <LoadingSpinner />;
   }
-  if (error) return <p>Error: {error.message}</p>
+  if (error) {
+   return <Custom404 />
+  }
 
   const jobOfferCount: number | undefined = companyDetail?.job_offers.length
 
@@ -77,6 +81,14 @@ const CompanyDetail = () => {
         <div className='text-4xl font-bold mb-4'>サービス</div>
         <div className='mb-4 mt-16'>
           <CompanyService services={companyDetail?.company_services || []} />
+        </div>
+      </div>
+      <BorderLine />
+
+      <div className='mt-8'>
+        <div className='text-4xl font-bold mb-4'>福利厚生・制度</div>
+        <div className='mb-4 mt-16'>
+          <CompanyBenefit benefits={companyDetail?.company_benefits || []} />
         </div>
       </div>
     </div>
