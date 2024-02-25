@@ -3,8 +3,8 @@ import { CompanyDetail } from '../../types/company'
 
 const useCompanyDetail = (hashId: string) => {
   const [companyDetail, setCompanyDetail] = useState<CompanyDetail | null>(null)
-  const [loading, setLoading] = useState<boolean>(false)
-  const [error, setError] = useState<Error | null>(null)
+  const [detailLoading, setDetailLoading] = useState<boolean>(false)
+  const [detailError, setDetailError] = useState<Error | null>(null)
 
   const options = useMemo(
     () => [
@@ -19,7 +19,7 @@ const useCompanyDetail = (hashId: string) => {
 
   useEffect(() => {
     const fetchCompanyDetail = async () => {
-      setLoading(true)
+      setDetailLoading(true)
       try {
         const optionsQuery = options.map((option) => `options[]=${option}`).join('&')
 
@@ -35,16 +35,16 @@ const useCompanyDetail = (hashId: string) => {
         const result: CompanyDetail = await res.json()
         setCompanyDetail(result)
       } catch (err) {
-        setError(err as Error)
+        setDetailError(err as Error)
       } finally {
-        setLoading(false)
+        setDetailLoading(false)
       }
     }
 
     fetchCompanyDetail()
   }, [hashId, options])
 
-  return { companyDetail, loading, error }
+  return { companyDetail, detailLoading, detailError }
 }
 
 export default useCompanyDetail

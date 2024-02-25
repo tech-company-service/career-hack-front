@@ -5,12 +5,12 @@ import { JobOffer } from '@/app/types/job_offer'
 
 const useCompanyJobOffers = (hashId: string) => {
   const [jobOffers, setJobOffers] = useState<JobOffer[] | null>(null)
-  const [loading, setLoading] = useState<boolean>(false)
-  const [error, setError] = useState<Error | null>(null)
+  const [jobOfferLoading, setJobOfferLoading] = useState<boolean>(false)
+  const [jobOfferError, setJobOfferError] = useState<Error | null>(null)
 
   useEffect(() => {
     const fetchCompanyJobOffers = async () => {
-      setLoading(true)
+      setJobOfferLoading(true)
       try {
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_APP_API_URL}/api/v1/companies/${hashId}/job_offers`,
@@ -24,16 +24,16 @@ const useCompanyJobOffers = (hashId: string) => {
         const result: JobOffer[] = await res.json()
         setJobOffers(result)
       } catch (err) {
-        setError(err as Error)
+        setJobOfferError(err as Error)
       } finally {
-        setLoading(false)
+        setJobOfferLoading(false)
       }
     }
 
     fetchCompanyJobOffers()
   }, [hashId])
 
-  return { jobOffers, loading, error }
+  return { jobOffers, jobOfferLoading, jobOfferError }
 }
 
 export default useCompanyJobOffers
