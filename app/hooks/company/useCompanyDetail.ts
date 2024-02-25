@@ -13,6 +13,7 @@ const useCompanyDetail = (hashId: string) => {
       'job_offers',
       'company_abouts',
       'company_articles',
+      'company_projects',
     ],
     [],
   )
