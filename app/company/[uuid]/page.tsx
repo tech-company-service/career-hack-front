@@ -52,15 +52,18 @@ const CompanyDetail = () => {
       <BorderLine />
 
       <div className='mt-8'>
-        <div className='text-4xl font-bold mb-4'>社内エンジニアを知る記事</div>
+        <div className='text-4xl font-bold mb-4'>
+          社内エンジニアを知る記事
+          <span className='ml-6 text-xl font-normal'>{companyDetail?.company_articles.length} 件</span>
+        </div>
         <div className='mb-4 mt-16'>
           <CompanyArticle articles={companyDetail?.company_articles || []} />
         </div>
       </div>
-      <div className='my-4'>
+      <div className='my-10'>
         <Link
           href={`/company/${hashId}/articles`}
-          className='text-blue-500 hover:text-blue-600 transition duration-300 ease-in-out'
+          className='text-slate-400'
         >
           もっと見る
         </Link>
@@ -68,7 +71,10 @@ const CompanyDetail = () => {
       <BorderLine />
 
       <div className='mt-8'>
-        <div className='text-4xl font-bold mb-4'>採用情報</div>
+        <div className='text-4xl font-bold mb-4'>
+          採用情報
+          <span className='ml-6 text-xl font-normal'>{companyDetail?.job_offers.length} 件</span>
+        </div>
         <div className='mb-4 mt-16'>
           <CompanyJobOffer jobOffers={companyDetail?.job_offers || []} />
         </div>
@@ -76,7 +82,7 @@ const CompanyDetail = () => {
       <div className='my-4'>
         <Link
           href={`/company/${hashId}/job_offers`}
-          className='text-blue-500 hover:text-blue-600 transition duration-300 ease-in-out'
+          className='text-slate-400'
         >
           もっと見る
         </Link>

@@ -12,8 +12,8 @@ const CompanyJobOffer: React.FC<CompanyJobOfferProps> = ({ jobOffers }) => {
   }
 
   return (
-    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-      {jobOffers.map((jobOffer, index) => (
+    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-10'>
+      {jobOffers.slice(0, 8).map((jobOffer, index) => (
         <JobOfferCard key={index} jobOffer={jobOffer} />
       ))}
     </div>
