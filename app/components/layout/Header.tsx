@@ -1,11 +1,9 @@
 'use client'
 
-import Image from 'next/image'
-import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import React from 'react';
-import Login from '@/app/components/Login';
 import LoggedInUserInfo from '@/app/components/LoggedInUserInfo';
+import Login from '@/app/components/Login';
 
 export const Header: React.FC<{ className?: string }> = ({ className }) => {
   const { data: session, status } = useSession()
