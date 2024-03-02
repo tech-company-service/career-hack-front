@@ -97,10 +97,21 @@ const CompanyDetail = () => {
       <BorderLine />
 
       <div className='mt-8'>
-        <div className='text-4xl font-bold mb-4'>サービス</div>
+        <div className='text-4xl font-bold mb-4'>
+          サービス
+          <span className='ml-6 text-xl font-normal'>{companyDetail?.company_services.length} 件</span>
+        </div>
         <div className='mb-4 mt-16'>
           <CompanyService services={companyDetail?.company_services || []} />
         </div>
+      </div>
+      <div className='my-4'>
+        <Link
+          href={`/company/${hashId}/services`}
+          className='text-slate-400'
+        >
+          もっと見る
+        </Link>
       </div>
       <BorderLine />
 
