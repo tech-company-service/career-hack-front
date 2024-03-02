@@ -8,7 +8,7 @@ interface CompanyServicesProps {
 
 const CompanyServices: React.FC<CompanyServicesProps> = ({ services }) => {
   if (!services || services.length === 0) {
-    return <div>現在、求人情報はありません。</div>
+    return <div>現在、サービス情報はありません。</div>
   }
 
   return (

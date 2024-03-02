@@ -34,7 +34,7 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ benefit }) => {
         className='outline-none rounded-lg p-6 bg-white shadow-xl m-4 overflow-auto max-w-xl max-h-full fixed inset-0 h-full w-full sm:w-auto sm:h-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
         overlayClassName='fixed inset-0 bg-black bg-opacity-50'
       >
-        <h2 className='font-medium text-xl mb-16'>{benefit.title}</h2>
+        <h2 className='font-medium text-xl mb-8 underline'>{benefit.title}</h2>
         <p className='text-gray-700 text-base mb-4 leading-loose'>{benefit.content}</p>
         <button
           onClick={() => setIsModalOpen(false)}
