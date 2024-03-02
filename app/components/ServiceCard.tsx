@@ -60,7 +60,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
         <p className='text-gray-600 text-sm'>ローンチ日 {formatDate(service.launched_at)}</p>
         <button
           onClick={() => setIsModalOpen(false)}
-          className='mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+          className='mt-4 bg-black text-white font-bold py-2 px-4 rounded'
         >
           閉じる
         </button>

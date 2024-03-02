@@ -38,7 +38,7 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ benefit }) => {
         <p className='text-gray-700 text-base mb-4 leading-loose'>{benefit.content}</p>
         <button
           onClick={() => setIsModalOpen(false)}
-          className='mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+          className='mt-4 bg-black text-white font-bold py-2 px-4 rounded'
         >
           閉じる
         </button>

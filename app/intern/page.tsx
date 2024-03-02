@@ -9,7 +9,7 @@ const Intern = () => {
       </h1>
       <Link href="/company" passHref>
         <button
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition duration-300"
+          className="px-4 py-2 bg-black text-white rounded transition duration-300"
         >
           企業一覧へ戻る
         </button>

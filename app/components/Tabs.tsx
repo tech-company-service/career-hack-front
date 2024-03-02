@@ -25,8 +25,8 @@ const Tabs: React.FC = () => {
             <button
               className={`inline-block py-2 px-4 text-xs sm:text-sm md:text-base rounded ${
                 activeTab.path === tab.path
-                  ? 'bg-blue-400 text-white font-extrabold'
-                  : 'bg-transparent text-black hover:bg-blue-400 hover:text-white'
+                  ? 'bg-black text-white font-extrabold'
+                  : 'bg-transparent text-black hover:bg-black hover:text-white'
               }`}
               onClick={() => setActiveTab(tab)}
             >

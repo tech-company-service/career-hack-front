@@ -56,7 +56,7 @@ const JobOfferList: React.FC<JobOfferListProps> = ({ jobOffers, url }) => {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className='mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+                className='mt-4 bg-black text-white font-bold py-2 px-4 rounded'
               >
                 採用ページへ
               </a>

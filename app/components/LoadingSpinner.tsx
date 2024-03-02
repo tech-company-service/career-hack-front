@@ -3,7 +3,7 @@ import React from 'react'
 const LoadingSpinner: React.FC = () => {
   return (
     <div className='flex justify-center items-center h-screen'> 
-      <div className='animate-spin-slow h-12 w-12 border-4 border-t-transparent border-blue-500 rounded-full'></div>
+      <div className='animate-spin-slow h-12 w-12 border-4 border-t-transparent border-black rounded-full'></div>
     </div>
   )
 }
