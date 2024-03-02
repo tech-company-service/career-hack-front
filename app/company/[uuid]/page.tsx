@@ -71,9 +71,16 @@ const CompanyDetail = () => {
       <BorderLine />
 
       <div className='mt-8'>
-        <div className='text-4xl font-bold mb-4'>
-          採用情報
-          <span className='ml-6 text-xl font-normal'>{companyDetail?.job_offers.length} 件</span>
+        <div className='flex items-center justify-between'>
+          <div className='text-4xl font-bold mb-4'>採用情報</div>
+          <div>
+            <Link 
+              href={`/company/${hashId}/interns`}
+              className="text-black text-lg hover:underline hover:text-blue-500"
+            >
+              インターン情報はこちら
+            </Link>
+          </div>
         </div>
         <div className='mb-4 mt-16'>
           <CompanyJobOffer jobOffers={companyDetail?.job_offers || []} />
