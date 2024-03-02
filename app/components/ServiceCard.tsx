@@ -37,16 +37,17 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
 
   return (
     <>
-      <div
-        className='bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out mb-6 cursor-pointer'
+      <div 
+        className="bg-white rounded-lg overflow-hidden border border-black mb-6 cursor-pointer hover:bg-black hover:border-white hover:text-white transition duration-300 ease-in-out" 
         onClick={() => setIsModalOpen(true)}
       >
-        <div className='p-6'>
-          <div className='font-medium text-xl mb-2'>{service.name}</div>
-          <p className='text-gray-700 text-base mb-4'>{truncateDescription(service.description)}</p>
-          <div className='text-gray-600 text-sm'>ローンチ日 {formatDate(service.launched_at)}</div>
+        <div className="p-6">
+          <div className="font-medium text-lg mb-2">{service.name}</div>
+          <p className=" text-base mb-4">{truncateDescription(service.description)}</p>
+          <div className="text-sm">ローンチ日 {formatDate(service.launched_at)}</div>
         </div>
       </div>
+
 
       <ReactModal
         isOpen={isModalOpen}

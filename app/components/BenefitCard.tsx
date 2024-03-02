@@ -19,12 +19,12 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ benefit }) => {
   return (
     <>
       <div
-        className='bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out mb-6 cursor-pointer'
+        className='bg-white rounded-lg overflow-hidden border border-black mb-6 cursor-pointer hover:bg-black hover:border-white hover:text-white transition duration-300 ease-in-out'
         onClick={() => setIsModalOpen(true)}
       >
         <div className='p-6'>
           <div className='font-medium text-xl mb-2'>{benefit.title}</div>
-          <p className='text-gray-700 text-base mb-4'>{truncateDescription(benefit.content)}</p>
+          <p className='text-base mb-4'>{truncateDescription(benefit.content)}</p>
         </div>
       </div>
 
@@ -36,6 +36,12 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ benefit }) => {
       >
         <h2 className='font-medium text-xl mb-16'>{benefit.title}</h2>
         <p className='text-gray-700 text-base mb-4 leading-loose'>{benefit.content}</p>
+        <button
+          onClick={() => setIsModalOpen(false)}
+          className='mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+        >
+          閉じる
+        </button>
       </ReactModal>
     </>
   )
