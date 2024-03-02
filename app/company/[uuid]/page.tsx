@@ -72,7 +72,10 @@ const CompanyDetail = () => {
 
       <div className='mt-8'>
         <div className='flex items-center justify-between'>
-          <div className='text-4xl font-bold mb-4'>採用情報</div>
+          <div className='text-4xl font-bold mb-4'>
+            採用情報
+            <span className='ml-6 text-xl font-normal'>{companyDetail?.job_offers.length} 件</span>
+          </div>
           <div>
             <Link 
               href={`/company/${hashId}/interns`}
@@ -116,10 +119,21 @@ const CompanyDetail = () => {
       <BorderLine />
 
       <div className='mt-8'>
-        <div className='text-4xl font-bold mb-4'>福利厚生・制度</div>
+        <div className='text-4xl font-bold mb-4'>
+          福利厚生・制度
+          <span className='ml-6 text-xl font-normal'>{companyDetail?.company_benefits.length} 件</span>
+        </div>
         <div className='mb-4 mt-16'>
           <CompanyBenefit benefits={companyDetail?.company_benefits || []} />
         </div>
+      </div>
+      <div className='my-4'>
+        <Link
+          href={`/company/${hashId}/benefits`}
+          className='text-slate-400'
+        >
+          もっと見る
+        </Link>
       </div>
     </div>
   )
