@@ -17,7 +17,7 @@ const CompanyDetailTable: React.FC<CompanyDetailProps> = ({ companyDetail }) => 
     const rect = event.currentTarget.getBoundingClientRect()
     setModalStyle({
       position: 'fixed',
-      top: `${rect.top + window.scrollY + rect.height}px`,
+      top: `${rect.top}px`,
       left: `${rect.left + window.scrollX}px`,
       transform: 'translate(0, 10px)',
       maxWidth: '90%',
@@ -36,13 +36,13 @@ const CompanyDetailTable: React.FC<CompanyDetailProps> = ({ companyDetail }) => 
                 {companyDetail?.initial_salary === 0 ? '不明' : companyDetail?.initial_salary}
               </span>
               {companyDetail?.initial_salary !== 0 && <span className='text-lg'>万円</span>}
-            </div>
-            <div
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={() => setIsModalOpen(false)}
-              className='flex items-center cursor-pointer'
-            >
-              <img src='/question_mark.svg' alt='Info' className='ml-2 w-4 h-4' />
+              <span
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={() => setIsModalOpen(false)}
+                className='flex items-center cursor-pointer text-red'
+              >
+                <img src='/question_mark.svg' alt='Info' className='ml-2 w-4 h-4' />
+              </span>
             </div>
           </div>
           <div className='mb-4'>
