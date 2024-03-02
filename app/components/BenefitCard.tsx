@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ReactModal from 'react-modal'
-import { CompanyBenefit } from '@/app/types/company_benefits'
+import { CompanyBenefit } from '@/app/types/company_benefit'
 
 interface BenefitCardProps {
   benefit: CompanyBenefit

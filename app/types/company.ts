@@ -1,6 +1,6 @@
 import { CompanyAbout } from '@/app/types/company_about'
 import { CompanyArticle } from '@/app/types/company_article'
-import { CompanyBenefit } from '@/app/types/company_benefits'
+import { CompanyBenefit } from '@/app/types/company_benefit'
 import { CompanyProject } from '@/app/types/company_project'
 import { CompanyService } from '@/app/types/company_service'
 import { JobOffer } from '@/app/types/job_offer'

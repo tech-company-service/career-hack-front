@@ -121,6 +121,14 @@ const CompanyDetail = () => {
           <CompanyBenefit benefits={companyDetail?.company_benefits || []} />
         </div>
       </div>
+      <div className='my-4'>
+        <Link
+          href={`/company/${hashId}/benefits`}
+          className='text-slate-400'
+        >
+          もっと見る
+        </Link>
+      </div>
     </div>
   )
 }
