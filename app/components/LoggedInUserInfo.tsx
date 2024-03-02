@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import React, { useState, useEffect } from 'react';
-import Modal from 'react-modal';
 import { useSession, signOut } from 'next-auth/react';
+import React, { useState } from 'react';
+import Modal from 'react-modal';
 
 const LoggedInUserInfo: React.FC = () => {
   const { data: session } = useSession();
@@ -30,17 +30,17 @@ const LoggedInUserInfo: React.FC = () => {
       >
         <div className="flex flex-col items-center mt-5">
           <button
-            onClick={() => {/* マイページへのリンクまたはアクションをここに挿入 */}}
+            onClick={() => {}}
             className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
           >
-            <img src="/account_circle.svg" alt="Info" className="mr-2 w-4 h-4" /> {/* "ml-2" を "mr-2" に変更 */}
+            <img src="/account_circle.svg" alt="Info" className="mr-2 w-4 h-4" />
             マイページ
           </button>
           <button
             onClick={() => {signOut(); setIsModalOpen(false);}}
             className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
           >
-            <img src="/logout.svg" alt="Info" className="mr-2 w-4 h-4" /> {/* "ml-2" を "mr-2" に変更 */}
+            <img src="/logout.svg" alt="Info" className="mr-2 w-4 h-4" />
             ログアウト
           </button>
         </div>

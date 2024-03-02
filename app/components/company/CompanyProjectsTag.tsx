@@ -12,7 +12,7 @@ const CompanyProjectsTag: React.FC<CompanyProjectsTagProps> = ({ companyProjects
       {companyProjects?.map((project) => (
         <span
           key={project.id}
-          className='m-1 border border-blue-400 text-blue-400 bg-white text-xs font-semibold px-2.5 py-0.5 rounded hover:bg-blue-400 hover:border-blue-400 hover:text-white transition duration-300 ease-in-out'
+          className='m-1 border border-black text-black bg-white text-xs font-semibold px-2.5 py-0.5 rounded hover:bg-black hover:border-white hover:text-white transition duration-300 ease-in-out'
         >
           {project.name}
         </span>
