@@ -55,8 +55,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
         className='outline-none rounded-lg p-6 bg-white shadow-xl m-4 overflow-auto max-w-xl max-h-full fixed inset-0 h-full w-full sm:w-auto sm:h-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
         overlayClassName='fixed inset-0 bg-black bg-opacity-50'
       >
-        <h2 className='font-medium text-xl mb-2'>{service.name}</h2>
-        <p className='text-gray-700 text-base mb-4 leading-loose'>{service.description}</p>
+        <h2 className='font-medium text-xl mb-8 underline'>{service.name}</h2>
+        <p className='text-gray-700 text-lg mb-4 leading-loose'>{service.description}</p>
         <p className='text-gray-600 text-sm'>ローンチ日 {formatDate(service.launched_at)}</p>
         <button
           onClick={() => setIsModalOpen(false)}

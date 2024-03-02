@@ -9,11 +9,10 @@ import CompanyServiceList from '@/app/components/company/services/CompanyService
 import useCompanyDetail from '@/app/hooks/company/useCompanyDetail'
 import useCompanyServices from '@/app/hooks/company/useCompanyServices'
 
-const services = () => {
+const Services = () => {
   const params = useParams()
   const hashId = params.uuid.toString()
   const { companyService, companyServiceLoading, companyServiceError } = useCompanyServices(hashId)
-  const { companyDetail, detailLoading, detailError } = useCompanyDetail(hashId)
 
   if (companyServiceLoading) {
     return <LoadingSpinner />;
@@ -35,4 +34,4 @@ const services = () => {
   )
 }
 
-export default services
+export default Services
