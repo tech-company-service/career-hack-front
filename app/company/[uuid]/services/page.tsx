@@ -6,13 +6,12 @@ import ItemCount from '@/app/components/ItemCount'
 import LoadingSpinner from '@/app/components/LoadingSpinner'
 import PageTitle from '@/app/components/PageTitle'
 import CompanyServiceList from '@/app/components/company/services/CompanyServiceList'
-import useCompanyDetail from '@/app/hooks/company/useCompanyDetail'
 import useCompanyServices from '@/app/hooks/company/useCompanyServices'
 
 const Services = () => {
   const params = useParams()
   const hashId = params.uuid.toString()
-  const { companyService, companyServiceLoading, companyServiceError } = useCompanyServices(hashId)
+  const { companyServices, companyServiceLoading, companyServiceError } = useCompanyServices(hashId)
 
   if (companyServiceLoading) {
     return <LoadingSpinner />;
@@ -23,11 +22,11 @@ const Services = () => {
         <div className='bg-white shadow-lg rounded-lg p-6 mb-4'>
           <div className='flex justify-between items-center mb-4'>
             <PageTitle title='サービス一覧' />
-            {!companyServiceError && companyService && (
-              <ItemCount count={companyService.length} label='サービス数' />
+            {!companyServiceError && companyServices && (
+              <ItemCount count={companyServices.length} label='サービス数' />
             )}
           </div>
-          <CompanyServiceList companyService={companyService} loading={companyServiceLoading} error={companyServiceError} />
+          <CompanyServiceList services={companyServices} loading={companyServiceLoading} error={companyServiceError} />
         </div>
       </div>
     </div>

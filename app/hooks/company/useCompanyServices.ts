@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { CompanyService } from '@/app/types/company_service'
 
 const useCompanyServices = (hashId: string) => {
-  const [companyService, setCompanyService] = useState<CompanyService[] | null>(null)
+  const [companyServices, setCompanyServices] = useState<CompanyService[] | null>(null)
   const [companyServiceLoading, setCompanyServiceLoading] = useState<boolean>(false)
   const [companyServiceError, setCompanyServiceError] = useState<Error | null>(null)
 
@@ -22,7 +22,7 @@ const useCompanyServices = (hashId: string) => {
           throw new Error('データ取得失敗')
         }
         const result: CompanyService[] = await res.json()
-        setCompanyService(result)
+        setCompanyServices(result)
       } catch (err) {
         setCompanyServiceError(err as Error)
       } finally {
@@ -33,7 +33,7 @@ const useCompanyServices = (hashId: string) => {
     fetchCompanyServices()
   }, [hashId])
 
-  return { companyService, companyServiceLoading, companyServiceError }
+  return { companyServices, companyServiceLoading, companyServiceError }
 }
 
 export default useCompanyServices
