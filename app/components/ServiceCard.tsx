@@ -15,6 +15,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
 
   const formatDate = (dateString: string): string | undefined => {
     switch (dateString?.length) {
+      case undefined:
+        return '-';
       case 0:
         return '-';
       case null:
@@ -61,7 +63,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
         <h2 className='font-medium text-xl mb-8 underline'>
           {service.name}
           <a href={service.url} target="_blank" rel="noopener noreferrer" className="float-right" style={{ cursor: 'pointer' }}>
-            <Image src="/new_open.svg" alt="Icon" width={20} height={20} />
+            <Image src="/new_open.svg" alt="Icon" width={25} height={25} />
           </a>
         </h2>
         <p className='text-gray-700 text-lg mb-4 leading-loose'>{service.description}</p>
