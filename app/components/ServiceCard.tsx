@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import React, { useState } from 'react'
 import ReactModal from 'react-modal'
 import { CompanyService } from '@/app/types/company_service'
@@ -45,7 +46,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
       >
         <div className="p-6">
           <div className="font-medium text-lg mb-2">{service.name}</div>
-          <p className=" text-base mb-4">{truncateDescription(service.description)}</p>
+          <p className=" text-base mb-4 min-h-[50px]">{truncateDescription(service.description)}</p>
           <div className="text-sm">ローンチ日 {formatDate(service.launched_at)}</div>
         </div>
       </div>
@@ -57,7 +58,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
         className='outline-none rounded-lg p-6 bg-white shadow-xl m-4 overflow-auto max-w-xl max-h-full fixed inset-0 h-full w-full sm:w-auto sm:h-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
         overlayClassName='fixed inset-0 bg-black bg-opacity-50'
       >
-        <h2 className='font-medium text-xl mb-8 underline'>{service.name}</h2>
+        <h2 className='font-medium text-xl mb-8 underline'>
+          {service.name}
+          <a href={service.url} target="_blank" rel="noopener noreferrer" className="float-right" style={{ cursor: 'pointer' }}>
+            <Image src="/new_open.svg" alt="Icon" width={20} height={20} />
+          </a>
+        </h2>
         <p className='text-gray-700 text-lg mb-4 leading-loose'>{service.description}</p>
         <p className='text-gray-600 text-sm'>ローンチ日 {formatDate(service.launched_at)}</p>
         <button

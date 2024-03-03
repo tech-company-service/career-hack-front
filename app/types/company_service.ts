@@ -3,4 +3,5 @@ export type CompanyService = {
   launched_at: string
   name: string
   description: string
+  url: string
 }
