@@ -6,7 +6,7 @@ import CompanyCard from './CompanyCard'
 import { Company } from '@/app/types/company'
 
 interface CompanyListProps {
-  companies: Company[] | null
+  companies: Company[] | undefined
   loading: boolean
   error: Error | null
 }

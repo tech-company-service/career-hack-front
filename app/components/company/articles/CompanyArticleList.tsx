@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react'
 import { CompanyArticle } from '@/app/types/company_article'
 
@@ -10,7 +8,6 @@ interface CompanyArticleProps {
 }
 
 const CompanyArticleList: React.FC<CompanyArticleProps> = ({ articles }) => {
-  console.log(articles)
   return (
     <div>
       {articles?.map((article, index) => (
@@ -25,7 +22,9 @@ const CompanyArticleList: React.FC<CompanyArticleProps> = ({ articles }) => {
             <div className='md:w-1/4'>
               <img
                 src={
-                  article.ogp_image_url ? article.ogp_image_url : '/images/default_article_image.png'
+                  article.ogp_image_url
+                    ? article.ogp_image_url
+                    : '/images/default_article_image.png'
                 }
                 alt={article.title}
                 className='w-full h-auto rounded-md'

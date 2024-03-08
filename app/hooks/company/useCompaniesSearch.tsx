@@ -1,39 +1,22 @@
-'use client'
+import useSWR from 'swr';
+import { Company } from '../../types/company';
 
-import { useState, useEffect } from 'react'
-import { Company } from '../../types/company'
+const fetcher = async (url: string) => {
+  const response = await fetch(url, { cache: 'no-store' });
+  if (!response.ok) {
+    throw new Error(`データ取得失敗: ${response.statusText}`);
+  }
+  return response.json();
+};
 
 const useCompaniesSearch = (params: string) => {
-  const [companies, setCompanies] = useState<Company[] | null>(null)
-  const [loading, setLoading] = useState<boolean>(false)
-  const [error, setError] = useState<Error | null>(null)
+  const { data, error } = useSWR<Company[] | undefined>(params !== '' ? `${process.env.NEXT_PUBLIC_APP_API_URL}/api/v1/companies/search?query=${params}` : null, fetcher);
 
-  useEffect(() => {
-    const fetchCompanies = async () => {
-      setLoading(true)
-      try {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_APP_API_URL}/api/v1/companies/search?query=${params}`,
-          {
-            cache: 'no-store',
-          },
-        )
-        if (!res.ok) {
-          throw new Error('データ取得失敗')
-        }
-        const result: Company[] = await res.json()
-        setCompanies(result)
-      } catch (err) {
-        setError(err as Error)
-      } finally {
-        setLoading(false)
-      }
-    }
+  return {
+    companySearchResults: data,
+    iscompanySearchLoading: !error && !data,
+    iscompanySearchError: error,
+  };
+};
 
-    fetchCompanies()
-  }, [params])
-
-  return { companies, loading, error }
-}
-
-export default useCompaniesSearch
+export default useCompaniesSearch;

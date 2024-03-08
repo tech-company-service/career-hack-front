@@ -5,15 +5,21 @@ import PageTitle from '../components/PageTitle'
 import SearchBar from '../components/SearchBar'
 import Tabs from '../components/Tabs'
 import CompanyList from '../components/company/CompanyList'
+import useCompanies from '../hooks/company/useCompanies'
 import useCompaniesSearch from '../hooks/company/useCompaniesSearch'
 
 const Company = () => {
-  const [searchQuery, setSearchQuery] = useState('')
-  const { companies, loading, error } = useCompaniesSearch(searchQuery)
+  const [searchQuery, setSearchQuery] = useState<string>('')
+  const { companies, isLoading, isError } = useCompanies()
+  const { companySearchResults, iscompanySearchLoading, iscompanySearchError } = useCompaniesSearch(searchQuery)
 
   const handleSearch = (query: string) => {
     setSearchQuery(query)
   }
+
+  const displayCompanies = searchQuery !== '' ? companySearchResults : companies
+  const displayLoading = searchQuery !== '' ? iscompanySearchLoading : isLoading
+  const displayError = searchQuery !== '' ? iscompanySearchError : isError
 
   return (
     <div className='flex flex-col items-center justify-center p-4'>
@@ -24,7 +30,7 @@ const Company = () => {
           </div>
           <SearchBar onSearch={handleSearch} />
           <PageTitle title='企業一覧' />
-          <CompanyList companies={companies} loading={loading} error={error} />
+          <CompanyList companies={displayCompanies} loading={displayLoading} error={displayError} />
         </div>
       </div>
     </div>

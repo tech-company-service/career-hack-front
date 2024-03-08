@@ -1,51 +1,31 @@
-import { useState, useEffect, useMemo } from 'react'
-import { CompanyDetail } from '../../types/company'
+import useSWR from 'swr';
+import { CompanyDetail } from '../../types/company';
+
+const fetcher = async (url: string) => {
+  const response = await fetch(url, { cache: 'no-store' });
+  if (!response.ok) {
+    throw new Error(`データ取得失敗: ${response.statusText}`);
+  }
+  return response.json();
+};
 
 const useCompanyDetail = (hashId: string) => {
-  const [companyDetail, setCompanyDetail] = useState<CompanyDetail | null>(null)
-  const [detailLoading, setDetailLoading] = useState<boolean>(false)
-  const [detailError, setDetailError] = useState<Error | null>(null)
+  const options: any = [
+    'company_benefits',
+    'company_services',
+    'job_offers',
+    'company_abouts',
+    'company_articles',
+    'company_projects',
+  ].map((option) => `options[]=${option}`).join('&');
 
-  const options = useMemo(
-    () => [
-      'company_benefits',
-      'company_services',
-      'job_offers',
-      'company_abouts',
-      'company_articles',
-      'company_projects',
-    ],
-    [],
-  )
+  const { data, error } = useSWR<CompanyDetail | undefined>(hashId ? `${process.env.NEXT_PUBLIC_APP_API_URL}/api/v1/companies/${hashId}?${options}` : null, fetcher);
 
-  useEffect(() => {
-    const fetchCompanyDetail = async () => {
-      setDetailLoading(true)
-      try {
-        const optionsQuery = options.map((option) => `options[]=${option}`).join('&')
+  return {
+    companyDetail: data,
+    detailLoading: !error && !data,
+    detailError: error,
+  };
+};
 
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_APP_API_URL}/api/v1/companies/${hashId}?${optionsQuery}`,
-          {
-            cache: 'no-store',
-          },
-        )
-        if (!res.ok) {
-          throw new Error('データ取得失敗')
-        }
-        const result: CompanyDetail = await res.json()
-        setCompanyDetail(result)
-      } catch (err) {
-        setDetailError(err as Error)
-      } finally {
-        setDetailLoading(false)
-      }
-    }
-
-    fetchCompanyDetail()
-  }, [hashId, options])
-
-  return { companyDetail, detailLoading, detailError }
-}
-
-export default useCompanyDetail
+export default useCompanyDetail;
