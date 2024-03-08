@@ -30,7 +30,7 @@ const AccordionSection: React.FC<CompanyAboutProps> = ({ companyAbout }) => {
         className='flex justify-between items-center w-full py-5 px-3 text-left'
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className='text-lg font-semibold'>{companyAbout.title}</span>
+        <span className='text-sm md:text-lg font-semibold'>{companyAbout.title}</span>
         <span>{isOpen ? '▼' : '▶︎'}</span>
       </button>
       {isOpen && <div className='pb-5 px-3 whitespace-pre-line text-sm'>{companyAbout.content}</div>}
