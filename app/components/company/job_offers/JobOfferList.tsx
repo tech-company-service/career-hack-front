@@ -16,7 +16,7 @@ const JobOfferList: React.FC<JobOfferListProps> = ({ jobOffers, url }) => {
   const [selectedJobOffer, setSelectedJobOffer] = useState<JobOffer | null>(null);
 
   const truncateDescription = (description: string) => {
-    return description.length > 100 ? description.substring(0, 100) + '...' : description;
+    return description?.length > 100 ? description.substring(0, 100) + '...' : description;
   };
 
   const handleJobOfferClick = (jobOffer: JobOffer) => {
