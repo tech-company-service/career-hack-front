@@ -69,6 +69,7 @@ const CompanyDetailTable: React.FC<CompanyDetailProps> = ({ companyDetail }) => 
       </div>
       <CustomModal
         isOpen={isModalOpen}
+        ariaHideApp={false}
         onRequestClose={() => setIsModalOpen(false)}
         content={<p>{companyDetail?.detailed_initial_salary}</p>}
         style={modalStyle}

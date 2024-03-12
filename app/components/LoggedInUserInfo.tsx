@@ -24,6 +24,7 @@ const LoggedInUserInfo: React.FC = () => {
       </button>
       <Modal
         isOpen={isModalOpen}
+        ariaHideApp={false}
         onRequestClose={() => setIsModalOpen(false)}
         contentLabel="User Menu"
         className="absolute m-12 py-2 w-48 bg-white rounded-md shadow-xl z-100 right-10 mb-8"

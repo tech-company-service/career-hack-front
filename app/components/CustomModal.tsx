@@ -6,6 +6,7 @@ interface CustomModalProps {
   onRequestClose: () => void
   position?: { x: number; y: number }
   style?: CSSProperties
+  ariaHideApp: boolean
 }
 
 const CustomModal: React.FC<CustomModalProps> = ({
