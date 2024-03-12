@@ -5,7 +5,7 @@ import CustomModal from '../CustomModal'
 import { CompanyDetail } from '@/app/types/company'
 
 interface CompanyDetailProps {
-  companyDetail: CompanyDetail | null
+  companyDetail: CompanyDetail | undefined
 }
 
 const CompanyDetailTable: React.FC<CompanyDetailProps> = ({ companyDetail }) => {
