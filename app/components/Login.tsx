@@ -1,5 +1,6 @@
 'use client'
 
+import { usePathname } from 'next/navigation';
 import { useSession, signIn } from 'next-auth/react'
 import React, { useState }  from 'react'
 import ReactModal from 'react-modal';
@@ -8,12 +9,13 @@ import LoadingSpinner from '@/app/components/LoadingSpinner';
 export default function Login() {
   const { data: session, status } = useSession()
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const pathname = usePathname();
 
   if (status === 'loading') {
     return <LoadingSpinner />;
   }
 
-  if (status !== 'authenticated') {
+  if (status !== 'authenticated' && pathname !== '/') {
     return (
       <div>
         <button
