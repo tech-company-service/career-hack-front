@@ -9,9 +9,3 @@
   font-weight: 900;
   font-style: italic;
 }
-
-.root-top-bg-image {
-  background-image: url('/images/top_page_bg.svg');
-  background-size: cover;
-  background-position: center;
-}
