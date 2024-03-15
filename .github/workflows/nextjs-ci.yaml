@@ -2,10 +2,10 @@ name: nextjs-ci
 
 on:
   push:
-    branches: [ main ]
+    branches: main
 
   pull_request:
-    branches: [ main ]
+    branches: main
 
 jobs:
   nextjs-ci:
@@ -14,7 +14,6 @@ jobs:
     strategy:
       matrix:
         node-version: [21.x]
-	
 
     steps:
       - uses: actions/checkout@v3
