@@ -13,7 +13,7 @@ interface CompanyListProps {
 
 const CompanyList: React.FC<CompanyListProps> = ({ companies, loading, error }) => {
   if (loading) {
-    return <LoadingSpinner />;
+    return <LoadingSpinner />
   }
 
   if (error) {

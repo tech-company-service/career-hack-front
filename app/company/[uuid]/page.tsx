@@ -6,7 +6,7 @@ import Custom404 from '@/app/404'
 import BorderLine from '@/app/components/BorderLine'
 import LoadingSpinner from '@/app/components/LoadingSpinner'
 import Accordion from '@/app/components/company/CompanyAboutAccordion'
-import CompanyArticle from '@/app/components/company/CompanyArticle'
+import CompanyArticles from '@/app/components/company/CompanyArticle'
 import CompanyBenefit from '@/app/components/company/CompanyBenefit'
 import CompanyDetailTable from '@/app/components/company/CompanyDetailTable'
 import CompanyJobOffer from '@/app/components/company/CompanyJobOffer'
@@ -21,11 +21,10 @@ const CompanyDetail = () => {
   const hashId = params.uuid.toString()
   const { companyDetail, detailLoading, detailError } = useCompanyDetail(hashId)
   const [width, height] = useWindowSize()
-  const logoSize = width <= 768 ? 40 : 80;
-
+  const logoSize = width <= 768 ? 40 : 80
 
   if (detailLoading) {
-    return <LoadingSpinner />;
+    return <LoadingSpinner />
   }
   if (detailError) return <p>Error: {detailError.message}</p>
 
@@ -59,17 +58,16 @@ const CompanyDetail = () => {
       <div className='mt-8'>
         <div className='text-xl p-3 md:text-4xl font-bold mb-4 mr-1'>
           社内エンジニアを知る記事
-          <span className='md:ml-6 text-xs md:text-xl font-normal block md:inline-block'>{companyDetail?.company_articles.length} 件</span>
+          <span className='md:ml-6 text-xs md:text-xl font-normal block md:inline-block'>
+            {companyDetail?.company_articles.length} 件
+          </span>
         </div>
         <div className='mb-4 mt-4 md:mt-16'>
-          <CompanyArticle articles={companyDetail?.company_articles || []} />
+          <CompanyArticles articles={companyDetail?.company_articles || []} />
         </div>
       </div>
       <div className='my-10'>
-        <Link
-          href={`/company/${hashId}/articles`}
-          className='text-slate-400'
-        >
+        <Link href={`/company/${hashId}/articles`} className='text-slate-400'>
           もっと見る
         </Link>
       </div>
@@ -79,12 +77,14 @@ const CompanyDetail = () => {
         <div className='flex flex-col md:flex-row items-start md:items-center justify-between'>
           <div className='text-xl md:text-4xl font-bold mb-4 p-3'>
             採用情報
-            <span className='ml-6 text-xs md:text-xl font-normal'>{companyDetail?.job_offers.length} 件</span>
+            <span className='ml-6 text-xs md:text-xl font-normal'>
+              {companyDetail?.job_offers.length} 件
+            </span>
           </div>
           <div>
-            <Link 
+            <Link
               href={`/company/${hashId}/interns`}
-              className="text-black text-base md:text-lg hover:text-blue-500 ml-3"
+              className='text-black text-base md:text-lg hover:text-blue-500 ml-3'
             >
               インターン情報はこちら
             </Link>
@@ -95,10 +95,7 @@ const CompanyDetail = () => {
         </div>
       </div>
       <div className='my-4'>
-        <Link
-          href={`/company/${hashId}/job_offers`}
-          className='text-slate-400'
-        >
+        <Link href={`/company/${hashId}/job_offers`} className='text-slate-400'>
           もっと見る
         </Link>
       </div>
@@ -107,17 +104,16 @@ const CompanyDetail = () => {
       <div className='mt-8'>
         <div className='text-xl p-3 md:text-4xl font-bold mb-4'>
           サービス
-          <span className='ml-6 text-xs md:text-xl font-normal'>{companyDetail?.company_services.length} 件</span>
+          <span className='ml-6 text-xs md:text-xl font-normal'>
+            {companyDetail?.company_services.length} 件
+          </span>
         </div>
         <div className='mb-4 mt-4 md:mt-16'>
           <CompanyService services={companyDetail?.company_services || []} windowSize={width} />
         </div>
       </div>
       <div className='my-4'>
-        <Link
-          href={`/company/${hashId}/services`}
-          className='text-slate-400'
-        >
+        <Link href={`/company/${hashId}/services`} className='text-slate-400'>
           もっと見る
         </Link>
       </div>
@@ -126,17 +122,16 @@ const CompanyDetail = () => {
       <div className='mt-8'>
         <div className='text-xl p-3 md:text-4xl font-bold mb-4'>
           福利厚生・制度
-          <span className='ml-6 text-xs md:text-xl font-normal'>{companyDetail?.company_benefits.length} 件</span>
+          <span className='ml-6 text-xs md:text-xl font-normal'>
+            {companyDetail?.company_benefits.length} 件
+          </span>
         </div>
         <div className='mb-4 mt-4 md:mt-16'>
           <CompanyBenefit benefits={companyDetail?.company_benefits || []} windowSize={width} />
         </div>
       </div>
       <div className='my-4'>
-        <Link
-          href={`/company/${hashId}/benefits`}
-          className='text-slate-400'
-        >
+        <Link href={`/company/${hashId}/benefits`} className='text-slate-400'>
           もっと見る
         </Link>
       </div>

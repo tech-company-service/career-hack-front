@@ -1,28 +1,28 @@
 'use client'
 
-import React, { useState } from 'react';
-import ReactModal from 'react-modal';
+import React, { useState } from 'react'
+import ReactModal from 'react-modal'
 import { JobOffer } from '@/app/types/job_offer'
 
 interface JobOfferListProps {
-  jobOffers: JobOffer[] | null;
-  loading: boolean;
-  error: Error | null;
-  url: string | undefined;
+  jobOffers: JobOffer[] | null
+  loading: boolean
+  error: Error | null
+  url: string | undefined
 }
 
 const JobOfferList: React.FC<JobOfferListProps> = ({ jobOffers, url }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedJobOffer, setSelectedJobOffer] = useState<JobOffer | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedJobOffer, setSelectedJobOffer] = useState<JobOffer | null>(null)
 
   const truncateDescription = (description: string) => {
-    return description?.length > 100 ? description.substring(0, 100) + '...' : description;
-  };
+    return description?.length > 100 ? description.substring(0, 100) + '...' : description
+  }
 
   const handleJobOfferClick = (jobOffer: JobOffer) => {
-    setSelectedJobOffer(jobOffer);
-    setIsModalOpen(true);
-  };
+    setSelectedJobOffer(jobOffer)
+    setIsModalOpen(true)
+  }
 
   return (
     <>
@@ -55,8 +55,8 @@ const JobOfferList: React.FC<JobOfferListProps> = ({ jobOffers, url }) => {
             <div className='ml-auto'>
               <a
                 href={url}
-                target="_blank"
-                rel="noopener noreferrer"
+                target='_blank'
+                rel='noopener noreferrer'
                 className='mt-4 bg-black text-white font-bold py-2 px-4 rounded'
               >
                 採用ページへ
@@ -66,7 +66,7 @@ const JobOfferList: React.FC<JobOfferListProps> = ({ jobOffers, url }) => {
         </ReactModal>
       )}
     </>
-  );
-};
+  )
+}
 
-export default JobOfferList;
+export default JobOfferList

@@ -11,7 +11,8 @@ import useCompaniesSearch from '../hooks/company/useCompaniesSearch'
 const Company = () => {
   const [searchQuery, setSearchQuery] = useState<string>('')
   const { companies, isLoading, isError } = useCompanies()
-  const { companySearchResults, iscompanySearchLoading, iscompanySearchError } = useCompaniesSearch(searchQuery)
+  const { companySearchResults, iscompanySearchLoading, iscompanySearchError } =
+    useCompaniesSearch(searchQuery)
 
   const handleSearch = (query: string) => {
     setSearchQuery(query)

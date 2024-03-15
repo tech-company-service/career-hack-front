@@ -1,27 +1,27 @@
 'use client'
 
-import React, { useState } from 'react';
-import ReactModal from 'react-modal';
-import { CompanyBenefit } from '@/app/types/company_benefit';
+import React, { useState } from 'react'
+import ReactModal from 'react-modal'
+import { CompanyBenefit } from '@/app/types/company_benefit'
 
 interface CompanyBenefitListProps {
-  companyBenefits: CompanyBenefit[] | null;
-  loading: boolean;
-  error: Error | null;
+  companyBenefits: CompanyBenefit[] | null
+  loading: boolean
+  error: Error | null
 }
 
 const CompanyBenefitList: React.FC<CompanyBenefitListProps> = ({ companyBenefits }) => {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [selectedCompanyBenefit, setSelectedCompanyBenefit] = useState<CompanyBenefit | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+  const [selectedCompanyBenefit, setSelectedCompanyBenefit] = useState<CompanyBenefit | null>(null)
 
   const truncateDescription = (title: string) => {
-    return title.length > 100 ? title.substring(0, 100) + '...' : title;
-  };
+    return title.length > 100 ? title.substring(0, 100) + '...' : title
+  }
 
   const handleCompanyBenefitsClick = (companyBenefit: CompanyBenefit) => {
-    setSelectedCompanyBenefit(companyBenefit);
-    setIsModalOpen(true);
-  };
+    setSelectedCompanyBenefit(companyBenefit)
+    setIsModalOpen(true)
+  }
 
   return (
     <>
@@ -53,7 +53,7 @@ const CompanyBenefitList: React.FC<CompanyBenefitListProps> = ({ companyBenefits
         </ReactModal>
       )}
     </>
-  );
-};
+  )
+}
 
-export default CompanyBenefitList;
+export default CompanyBenefitList

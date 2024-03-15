@@ -33,7 +33,9 @@ const AccordionSection: React.FC<CompanyAboutProps> = ({ companyAbout }) => {
         <span className='text-sm md:text-lg font-semibold'>{companyAbout.title}</span>
         <span>{isOpen ? '▼' : '▶︎'}</span>
       </button>
-      {isOpen && <div className='pb-5 px-3 whitespace-pre-line text-sm'>{companyAbout.content}</div>}
+      {isOpen && (
+        <div className='pb-5 px-3 whitespace-pre-line text-sm'>{companyAbout.content}</div>
+      )}
     </div>
   )
 }

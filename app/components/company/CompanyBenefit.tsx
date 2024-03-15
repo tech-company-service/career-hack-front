@@ -3,8 +3,8 @@ import BenefitCard from '@/app/components/BenefitCard'
 import { CompanyBenefit } from '@/app/types/company_benefit'
 
 interface CompanyBenefitsProps {
-  benefits: CompanyBenefit[] | null,
-  windowSize: number,
+  benefits: CompanyBenefit[] | null
+  windowSize: number
 }
 
 const CompanyServices: React.FC<CompanyBenefitsProps> = ({ benefits, windowSize }) => {

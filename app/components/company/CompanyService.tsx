@@ -3,8 +3,8 @@ import ServiceCard from './../ServiceCard'
 import { CompanyService } from '@/app/types/company_service'
 
 interface CompanyServicesProps {
-  services: CompanyService[] | null,
-  windowSize: number,
+  services: CompanyService[] | null
+  windowSize: number
 }
 
 const CompanyServices: React.FC<CompanyServicesProps> = ({ services, windowSize }) => {

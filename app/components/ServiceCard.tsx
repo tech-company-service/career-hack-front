@@ -16,23 +16,23 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   const formatDate = (dateString: string): string | undefined => {
     switch (dateString?.length) {
       case undefined:
-        return '-';
+        return '-'
       case 0:
-        return '-';
+        return '-'
       case null:
-        return '-';
+        return '-'
       case 4:
-        return `${dateString}年`;
+        return `${dateString}年`
       case 6:
-        const yearMonthMatch = dateString.match(/(\d{4})(\d{2})/);
-        if (!yearMonthMatch) throw new Error('Invalid date format for year and month');
-        return `${yearMonthMatch[1]}年${parseInt(yearMonthMatch[2], 10)}月`;
+        const yearMonthMatch = dateString.match(/(\d{4})(\d{2})/)
+        if (!yearMonthMatch) throw new Error('Invalid date format for year and month')
+        return `${yearMonthMatch[1]}年${parseInt(yearMonthMatch[2], 10)}月`
       case 8:
-        const yearMonthDayMatch = dateString.match(/(\d{4})(\d{2})(\d{2})/);
-        if (!yearMonthDayMatch) throw new Error('Invalid date format for year, month, and day');
-        return `${yearMonthDayMatch[1]}年${parseInt(yearMonthDayMatch[2], 10)}月${parseInt(yearMonthDayMatch[3], 10)}日`;
+        const yearMonthDayMatch = dateString.match(/(\d{4})(\d{2})(\d{2})/)
+        if (!yearMonthDayMatch) throw new Error('Invalid date format for year, month, and day')
+        return `${yearMonthDayMatch[1]}年${parseInt(yearMonthDayMatch[2], 10)}月${parseInt(yearMonthDayMatch[3], 10)}日`
     }
-  };
+  }
 
   const truncateDescription = (description: string): string => {
     return description.length > descriptionBorderLength
@@ -42,17 +42,16 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
 
   return (
     <>
-      <div 
-        className="bg-white rounded-lg overflow-hidden border border-black mb-6 cursor-pointer hover:bg-black hover:border-white hover:text-white transition duration-300 ease-in-out" 
+      <div
+        className='bg-white rounded-lg overflow-hidden border border-black mb-6 cursor-pointer hover:bg-black hover:border-white hover:text-white transition duration-300 ease-in-out'
         onClick={() => setIsModalOpen(true)}
       >
-        <div className="p-6">
-          <div className="font-medium text-lg mb-2">{service.name}</div>
-          <p className=" text-base mb-4 min-h-[50px]">{truncateDescription(service.description)}</p>
-          <div className="text-sm">ローンチ日 {formatDate(service.launched_at)}</div>
+        <div className='p-6'>
+          <div className='font-medium text-lg mb-2'>{service.name}</div>
+          <p className=' text-base mb-4 min-h-[50px]'>{truncateDescription(service.description)}</p>
+          <div className='text-sm'>ローンチ日 {formatDate(service.launched_at)}</div>
         </div>
       </div>
-
 
       <ReactModal
         isOpen={isModalOpen}
@@ -63,8 +62,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
       >
         <h2 className='font-medium text-xl mb-8 underline'>
           {service.name}
-          <a href={service.url} target="_blank" rel="noopener noreferrer" className="float-right" style={{ cursor: 'pointer' }}>
-            <Image src="/new_open.svg" alt="Icon" width={25} height={25} />
+          <a
+            href={service.url}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='float-right'
+            style={{ cursor: 'pointer' }}
+          >
+            <Image src='/new_open.svg' alt='Icon' width={25} height={25} />
           </a>
         </h2>
         <p className='text-gray-700 text-lg mb-4 leading-loose'>{service.description}</p>

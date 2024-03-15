@@ -16,7 +16,7 @@ const JobOffers = () => {
   const { companyDetail, detailLoading, detailError } = useCompanyDetail(hashId)
 
   if (jobOfferLoading) {
-    return <LoadingSpinner />;
+    return <LoadingSpinner />
   }
   return (
     <div className='flex flex-col items-center justify-center p-4'>
@@ -28,7 +28,12 @@ const JobOffers = () => {
               <ItemCount count={jobOffers.length} label='募集職種数' />
             )}
           </div>
-          <JobOfferList jobOffers={jobOffers} loading={jobOfferLoading} error={jobOfferError} url={companyDetail?.recruit_url} />
+          <JobOfferList
+            jobOffers={jobOffers}
+            loading={jobOfferLoading}
+            error={jobOfferError}
+            url={companyDetail?.recruit_url}
+          />
         </div>
       </div>
     </div>
