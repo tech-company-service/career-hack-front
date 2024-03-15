@@ -1,21 +1,36 @@
-import Link from 'next/link';
-import React from 'react';
+'use client'
 
-const CompanyInterns = () => {
+import { useParams } from 'next/navigation'
+import React from 'react'
+import ItemCount from '@/app/components/ItemCount'
+import LoadingSpinner from '@/app/components/LoadingSpinner'
+import PageTitle from '@/app/components/PageTitle'
+import InternList from '@/app/components/company/intern/InternList'
+import useIntern from '@/app/hooks/company/useIntern'
+
+const Interns = () => {
+  const params = useParams()
+  const hashId = params.uuid.toString()
+  const { interns, internLoading, internError } = useIntern(hashId)
+
+  if (internLoading) {
+    return <LoadingSpinner />;
+  }
   return (
-    <div className="flex flex-col items-center justify-center h-screen space-y-4">
-      <h1 className="text-4xl font-bold text-gray-800">
-        Coming Soon...
-      </h1>
-      <Link href="/company" passHref>
-        <button
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition duration-300"
-        >
-          企業一覧へ戻る
-        </button>
-      </Link>
+    <div className='flex flex-col items-center justify-center p-4'>
+      <div className='w-full max-w-6xl mx-auto'>
+        <div className='bg-white shadow-lg rounded-lg p-6 mb-4'>
+          <div className='flex justify-between items-center mb-4'>
+            <PageTitle title='インターン一覧' />
+            {!internError && interns && (
+              <ItemCount count={interns.length} label='募集中のインターン数' />
+            )}
+          </div>
+          <InternList interns={interns} loading={internLoading} error={internError} hashId={hashId}  />
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
-export default CompanyInterns;
+export default Interns

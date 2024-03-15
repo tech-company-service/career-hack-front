@@ -4,6 +4,7 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import ReactModal from 'react-modal'
 import { CompanyService } from '@/app/types/company_service'
+import { formatDate } from '@/app/utils/formatDate'
 
 interface ServiceCardProps {
   service: CompanyService
@@ -12,27 +13,6 @@ interface ServiceCardProps {
 const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const descriptionBorderLength: number = 20
-
-  const formatDate = (dateString: string): string | undefined => {
-    switch (dateString?.length) {
-      case undefined:
-        return '-';
-      case 0:
-        return '-';
-      case null:
-        return '-';
-      case 4:
-        return `${dateString}年`;
-      case 6:
-        const yearMonthMatch = dateString.match(/(\d{4})(\d{2})/);
-        if (!yearMonthMatch) throw new Error('Invalid date format for year and month');
-        return `${yearMonthMatch[1]}年${parseInt(yearMonthMatch[2], 10)}月`;
-      case 8:
-        const yearMonthDayMatch = dateString.match(/(\d{4})(\d{2})(\d{2})/);
-        if (!yearMonthDayMatch) throw new Error('Invalid date format for year, month, and day');
-        return `${yearMonthDayMatch[1]}年${parseInt(yearMonthDayMatch[2], 10)}月${parseInt(yearMonthDayMatch[3], 10)}日`;
-    }
-  };
 
   const truncateDescription = (description: string): string => {
     return description.length > descriptionBorderLength
@@ -52,7 +32,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
           <div className="text-sm">ローンチ日 {formatDate(service.launched_at)}</div>
         </div>
       </div>
-
 
       <ReactModal
         isOpen={isModalOpen}

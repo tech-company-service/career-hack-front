@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ReactModal from 'react-modal'
 import { CompanyBenefit } from '@/app/types/company_benefit'
+import { truncateDescription } from '@/app/utils/truncateDescription'
 
 interface BenefitCardProps {
   benefit: CompanyBenefit
@@ -10,12 +11,6 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ benefit }) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const contentBorderLength: number = 20
 
-  const truncateDescription = (description: string): string => {
-    return description.length > contentBorderLength
-      ? `${description.substring(0, contentBorderLength)}...`
-      : description
-  }
-
   return (
     <>
       <div
@@ -24,7 +19,7 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ benefit }) => {
       >
         <div className='p-6'>
           <div className='font-medium text-xl mb-2'>{benefit.title}</div>
-          <p className='text-base mb-4'>{truncateDescription(benefit.content)}</p>
+          <p className='text-base mb-4'>{truncateDescription(benefit.content, contentBorderLength)}</p>
         </div>
       </div>
 

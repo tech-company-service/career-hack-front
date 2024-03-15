@@ -7,7 +7,7 @@ interface CompanyBenefitsProps {
   windowSize: number,
 }
 
-const CompanyServices: React.FC<CompanyBenefitsProps> = ({ benefits, windowSize }) => {
+const CompanyBenefits: React.FC<CompanyBenefitsProps> = ({ benefits, windowSize }) => {
   if (!benefits || benefits.length === 0) {
     return <div>福利厚生がありません</div>
   }
@@ -31,4 +31,4 @@ const CompanyServices: React.FC<CompanyBenefitsProps> = ({ benefits, windowSize 
   }
 }
 
-export default CompanyServices
+export default CompanyBenefits
