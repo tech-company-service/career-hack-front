@@ -1,5 +1,5 @@
 import useSWR from 'swr';
-import { CompanyDetail } from '../../types/company';
+import { CompanyDetail } from '@/app/types/company';
 
 const fetcher = async (url: string) => {
   const response = await fetch(url, { cache: 'no-store' });
