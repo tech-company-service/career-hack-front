@@ -14,7 +14,7 @@ const JobOffers = () => {
   const { companyBenefits, companyBenefitLoading, companyBenefitError } = useCompanyBenefits(hashId)
 
   if (companyBenefitLoading) {
-    return <LoadingSpinner />;
+    return <LoadingSpinner />
   }
   return (
     <div className='flex flex-col items-center justify-center p-4'>
@@ -26,7 +26,11 @@ const JobOffers = () => {
               <ItemCount count={companyBenefits.length} label='募集職種数' />
             )}
           </div>
-          <CompanyBenefitList companyBenefits={companyBenefits} loading={companyBenefitLoading} error={companyBenefitError} />
+          <CompanyBenefitList
+            companyBenefits={companyBenefits}
+            loading={companyBenefitLoading}
+            error={companyBenefitError}
+          />
         </div>
       </div>
     </div>

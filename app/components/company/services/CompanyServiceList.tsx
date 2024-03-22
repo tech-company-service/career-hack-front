@@ -1,13 +1,13 @@
 'use client'
 
-import React, { useState } from 'react';
-import ServiceCard from '@/app/components/ServiceCard';
-import { CompanyService } from '@/app/types/company_service';
+import React, { useState } from 'react'
+import ServiceCard from '@/app/components/ServiceCard'
+import { CompanyService } from '@/app/types/company_service'
 
 interface CompanyServiceListProps {
-  services: CompanyService[] | null;
-  loading: boolean;
-  error: Error | null;
+  services: CompanyService[] | null
+  loading: boolean
+  error: Error | null
 }
 
 const CompanyServiceList: React.FC<CompanyServiceListProps> = ({ services }) => {
@@ -16,11 +16,9 @@ const CompanyServiceList: React.FC<CompanyServiceListProps> = ({ services }) => 
   }
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-      {services?.map((service, index) => (
-        <ServiceCard key={index} service={service} />
-      ))}
+      {services?.map((service, index) => <ServiceCard key={index} service={service} />)}
     </div>
-  );
-};
+  )
+}
 
-export default CompanyServiceList;
+export default CompanyServiceList

@@ -3,8 +3,8 @@ import JobOfferCard from './../JobOfferCard'
 import { JobOffer } from '@/app/types/job_offer'
 
 interface CompanyJobOfferProps {
-  jobOffers: JobOffer[] | null,
-  windowSize: number,
+  jobOffers: JobOffer[] | null
+  windowSize: number
 }
 
 const CompanyJobOffer: React.FC<CompanyJobOfferProps> = ({ jobOffers, windowSize }) => {
@@ -19,13 +19,14 @@ const CompanyJobOffer: React.FC<CompanyJobOfferProps> = ({ jobOffers, windowSize
           <JobOfferCard key={index} jobOffer={jobOffer} />
         ))}
       </div>
-    ) } else {
+    )
+  } else {
     return (
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-10'>
         {jobOffers.slice(0, 8).map((jobOffer, index) => (
           <JobOfferCard key={index} jobOffer={jobOffer} />
         ))}
-      </div> 
+      </div>
     )
   }
 }

@@ -14,7 +14,7 @@ const JobOffers = () => {
   const { articles, loading, error } = useCompanyArticles(hashId)
 
   if (loading) {
-    return <LoadingSpinner />;
+    return <LoadingSpinner />
   }
   return (
     <div className='flex flex-col items-center justify-center p-4'>
@@ -22,9 +22,7 @@ const JobOffers = () => {
         <div className='bg-white shadow-lg rounded-lg p-6 mb-4'>
           <div className='flex justify-between items-center mb-4'>
             <PageTitle title='記事一覧' />
-            {!error && articles && (
-              <ItemCount count={articles.length} label='記事数' />
-            )}
+            {!error && articles && <ItemCount count={articles.length} label='記事数' />}
           </div>
           <CompanyArticleList articles={articles} loading={loading} error={error} />
         </div>

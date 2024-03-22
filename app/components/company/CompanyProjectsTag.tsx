@@ -8,7 +8,7 @@ interface CompanyProjectsTagProps {
 
 const CompanyProjectsTag: React.FC<CompanyProjectsTagProps> = ({ companyProjects }) => {
   return (
-    <div className={`flex overflow-x-scroll whitespace-nowrap -m-1 ${styles.scroll}`} >
+    <div className={`flex overflow-x-scroll whitespace-nowrap -m-1 ${styles.scroll}`}>
       {companyProjects?.map((project) => (
         <span
           key={project.id}

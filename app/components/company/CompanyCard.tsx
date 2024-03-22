@@ -12,7 +12,12 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
     <>
       <div className='w-full min-h-64 rounded overflow-hidden bg-white my-4 mx-auto border border-black hover:shadow-2xl transition-shadow duration-300 ease-in-out'>
         <div className='flex items-end px-6 py-4'>
-          <CompanyLogo avator={company.avator} is_logo_mail_approved={company.is_logo_mail_approved} height={40} width={40} />
+          <CompanyLogo
+            avator={company.avator}
+            is_logo_mail_approved={company.is_logo_mail_approved}
+            height={40}
+            width={40}
+          />
           <div className='font-bold text-xl ml-4 mb-2'>{company.name}</div>
         </div>
         <div>
@@ -28,7 +33,9 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
             {company.average_salary === 0 ? (
               <span className='ml-3 text-gray-700 text-xl'>-</span>
             ) : (
-              <span className='ml-3 text-gray-700 text-3xl font-bold'>{company.average_salary}</span>
+              <span className='ml-3 text-gray-700 text-3xl font-bold'>
+                {company.average_salary}
+              </span>
             )}
             <span className='ml-2'>万円</span>
           </div>
@@ -37,7 +44,9 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company }) => {
             {company.initial_salary === 0 ? (
               <span className='ml-7 text-gray-700 text-xl'>-</span>
             ) : (
-              <span className='ml-7 text-gray-700 text-3xl font-bold'>{company.initial_salary}</span>
+              <span className='ml-7 text-gray-700 text-3xl font-bold'>
+                {company.initial_salary}
+              </span>
             )}
             <span>
               <span className='ml-2'>万円</span>

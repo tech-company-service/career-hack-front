@@ -14,7 +14,7 @@ const Services = () => {
   const { companyServices, companyServiceLoading, companyServiceError } = useCompanyServices(hashId)
 
   if (companyServiceLoading) {
-    return <LoadingSpinner />;
+    return <LoadingSpinner />
   }
   return (
     <div className='flex flex-col items-center justify-center p-4'>
@@ -26,7 +26,11 @@ const Services = () => {
               <ItemCount count={companyServices.length} label='サービス数' />
             )}
           </div>
-          <CompanyServiceList services={companyServices} loading={companyServiceLoading} error={companyServiceError} />
+          <CompanyServiceList
+            services={companyServices}
+            loading={companyServiceLoading}
+            error={companyServiceError}
+          />
         </div>
       </div>
     </div>
