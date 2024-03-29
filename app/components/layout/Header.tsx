@@ -11,10 +11,10 @@ export const Header: React.FC<{ className?: string }> = ({ className }) => {
 
   return (
     <div className={`fixed top-0 left-0 w-full bg-white shadow-md z-10 ${className ?? ''}`}>
-      <nav className='container mx-auto px-6 py-3 flex items-center justify-between'>
+      <nav className='container mx-auto px-10 md:px-16 py-3 flex items-center justify-between'>
         <div className='flex items-center space-x-4'>
           <Link href='/company' className='flex items-center cursor-pointer'>
-            <span className='font-raleway-black-italic text-4xl text-black font-semibold'>
+            <span className='font-raleway-black-italic text-2xl md:text-4xl text-black font-semibold'>
               Bridge.
             </span>
             <img src='/bridge_main_logo.svg' alt='サービスロゴ' className='h-16 rounded-full' />
