@@ -23,7 +23,7 @@ const Company = () => {
   const displayError = searchQuery !== '' ? iscompanySearchError : isError
 
   return (
-    <div className='flex flex-col items-center justify-center p-4'>
+    <div className='flex flex-col items-center justify-center md:p-4'>
       <div className='w-full max-w-6xl mx-auto'>
         <div className='bg-white shadow-lg rounded-lg p-6 mb-4'>
           <div className='mb-4'>

@@ -36,14 +36,14 @@ export default function Login() {
           <div className='text-center text-3xl font-bold pt-5'>Bridge .</div>
 
           <div className='flex flex-col justify-end h-full'>
-            {/* <div className="w-full mb-4">
+            <div className="w-full mb-4">
               <button
                 onClick={() => signIn('google', {}, { prompt: 'login' })}
                 className="bg-red-500 text-white active:bg-red-600 font-bold uppercase text-lg px-6 py-3 rounded-lg shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150 w-full"
               >
                 Googleでログイン
               </button>
-            </div> */}
+            </div>
             <div className='w-full mb-4'>
               <button
                 onClick={() => signIn('github', {}, { prompt: 'login' })}
