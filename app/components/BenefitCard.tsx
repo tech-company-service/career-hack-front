@@ -32,7 +32,7 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ benefit }) => {
         isOpen={isModalOpen}
         ariaHideApp={false}
         onRequestClose={() => setIsModalOpen(false)}
-        className='outline-none rounded-lg p-6 bg-white shadow-xl m-4 overflow-auto max-w-xl max-h-full fixed inset-0 h-full w-full sm:w-auto sm:h-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
+        className='outline-none rounded-lg p-4 md:p-6 bg-white shadow-xl overflow-auto max-w-none md:max-w-xl md:max-h-full fixed inset-0 md:h-auto md:w-auto top-1/2 left-1/4 sm:left-1/2 -translate-x-10 sm:-translate-x-1/2 -translate-y-1/2'
         overlayClassName='fixed inset-0 bg-black bg-opacity-50'
       >
         <h2 className='font-medium text-xl mb-8 underline'>{benefit.title}</h2>
