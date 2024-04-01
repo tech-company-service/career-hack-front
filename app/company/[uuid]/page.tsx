@@ -31,7 +31,7 @@ const CompanyDetail = () => {
   const jobOfferCount: number | undefined = companyDetail?.job_offers.length
 
   return (
-    <div className='bg-white shadow-md rounded-lg p-2 md:p-6 px-4 md:px-2 md:px-24'>
+    <div className='bg-white shadow-md rounded-lg mt-2 p-4 md:p-6 w-full max-w-6xl mx-auto'>
       <div className='flex items-end mb-4'>
         <div className='mt-4 ml-4'>
           <CompanyLogo
